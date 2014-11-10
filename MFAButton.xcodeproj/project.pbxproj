@@ -90,14 +90,8 @@
 		AC506D271A102F9C007B4BA6 /* MFAButton */ = {
 			isa = PBXGroup;
 			children = (
+				AC506D5D1A103CE5007B4BA6 /* Demo */,
 				AC506D4E1A102FA6007B4BA6 /* MFAButton */,
-				AC506D2C1A102F9C007B4BA6 /* AppDelegate.h */,
-				AC506D2D1A102F9C007B4BA6 /* AppDelegate.m */,
-				AC506D2F1A102F9C007B4BA6 /* ViewController.h */,
-				AC506D301A102F9C007B4BA6 /* ViewController.m */,
-				AC506D321A102F9C007B4BA6 /* Main.storyboard */,
-				AC506D351A102F9C007B4BA6 /* Images.xcassets */,
-				AC506D371A102F9C007B4BA6 /* LaunchScreen.xib */,
 				AC506D281A102F9C007B4BA6 /* Supporting Files */,
 			);
 			path = MFAButton;
@@ -156,6 +150,20 @@
 				AC506D581A103014007B4BA6 /* FrontButton.m */,
 			);
 			name = FrontButton;
+			sourceTree = "<group>";
+		};
+		AC506D5D1A103CE5007B4BA6 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				AC506D2C1A102F9C007B4BA6 /* AppDelegate.h */,
+				AC506D2D1A102F9C007B4BA6 /* AppDelegate.m */,
+				AC506D2F1A102F9C007B4BA6 /* ViewController.h */,
+				AC506D301A102F9C007B4BA6 /* ViewController.m */,
+				AC506D321A102F9C007B4BA6 /* Main.storyboard */,
+				AC506D351A102F9C007B4BA6 /* Images.xcassets */,
+				AC506D371A102F9C007B4BA6 /* LaunchScreen.xib */,
+			);
+			name = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -22,7 +22,6 @@
  - Active Label
  - Default Event
  - Active Event
- 
  */
 
 typedef NS_ENUM(NSInteger, MFAButtonPosition) {
@@ -44,13 +43,14 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 // Background Properties
 
 
-
 // Create a FAButton that has a single action.
 - (id) initWithSingleActionButton;
 
 // Create a FAB button that generates a list of potential action.
 - (id) initWithActionListButton;
 
+// Sets the event to be performed when button is in active state or button is a single action button
 - (void) setEvent: (void (^)())event;
+
 
 @end

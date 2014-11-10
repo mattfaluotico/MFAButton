@@ -15,7 +15,7 @@
     CGRect screen = [[UIScreen mainScreen] bounds];
     self = [super initWithFrame:CGRectMake(0, 0, screen.size.width, screen.size.height)];
     self.backgroundColor = [UIColor clearColor];
-    self.userInteractionEnabled = NO;
+//    self.userInteractionEnabled = NO;
     return self;
 };
 

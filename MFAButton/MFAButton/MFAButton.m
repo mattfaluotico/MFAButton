@@ -15,8 +15,6 @@
 @property FrontButton *frontButton;
 @property BackgroundView *backgroundView;
 
-
-
 @end
 
 @implementation MFAButton
@@ -26,7 +24,8 @@
 };
 
 - (id) initWithActionListButton {
-    self = [super init];
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    self = [super initWithFrame:CGRectMake(0, 0, screen.size.width, screen.size.height)];
     self.backgroundView = [[BackgroundView alloc] init];
     self.frontButton    = [[FrontButton alloc] init];
     [self addSubview:self.backgroundView];
@@ -36,18 +35,25 @@
 
 - (void) setEvent: (void (^)())event {
     EventBlock = event;
-    [self.frontButton removeTarget:nil
-                            action:NULL
-                  forControlEvents:UIControlEventAllEvents];
-    
-    [self.frontButton
-     addTarget:self
-     action:@selector(performEvent)
-     forControlEvents:UIControlEventTouchUpInside];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(performEvent)];
+    [self.frontButton addGestureRecognizer:tap];
 }
 
 - (void) performEvent {
+    NSLog(@"one");
     EventBlock();
+}
+
+- (void) launchList {
+    
+    // Disable view unactivity
+    // add lists to view
+    //
+    
+}
+
+- (void) asSelector: (id) class performs:(SEL) sel {
+    [class performSelector:sel withObject:nil];
 }
 
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MFAButton.h"
 
 @interface FrontButton : UIButton
+
 
 @end

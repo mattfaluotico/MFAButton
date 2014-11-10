@@ -14,6 +14,8 @@
 - (id) init {
     self = [super initWithFrame:CGRectMake(0, 0, 100, 100)];
     self.backgroundColor = [UIColor blueColor];
+    [self setTitle:@"Hi, Matt" forState:UIControlStateNormal];
+    self.userInteractionEnabled = YES;
     return self;
 }
 
