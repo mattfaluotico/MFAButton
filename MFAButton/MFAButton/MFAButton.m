@@ -7,6 +7,7 @@
 //
 
 #import "MFAButton.h"
+#import "OptionLabel.h"
 
 @interface MFAButton() {
     void (^EventBlock)();
@@ -32,37 +33,69 @@
     [self addSubview:self.backgroundView];
     [self addSubview:self.frontButton];
     self.clipsToBounds = YES;
-    
+    [self.frontButton addTarget:self action:@selector(performEvent) forControlEvents:UIControlEventTouchUpInside];
     return self;
 };
 
--(id)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    id hitView = [super hitTest:point withEvent:event];
-    if (hitView == self) return nil;
-    else return hitView;
-}
-
 - (void) setEvent: (void (^)())event {
     EventBlock = event;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(performEvent)];
-    [self.frontButton addGestureRecognizer:tap];
 }
 
 - (void) performEvent {
-    NSLog(@"one");
-    EventBlock();
+    NSLog(@"presssed");
+    [self launchTestList];
 }
 
-- (void) launchList {
+- (void) launchTestList {
     
-    // Disable view unactivity
-    // add lists to view
-    //
+    // Sets the background view
+    self.backgroundView = [[BackgroundView alloc] init];
+    self.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.3];
+    [self insertSubview:self.backgroundView belowSubview:self.frontButton];
+    
+    // Sets the list elements
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    OptionLabel *one = [[OptionLabel alloc] initWithLabelIndex:1 Text:@"Really fucking big Cactus" image:nil andEvent:nil];
+    OptionLabel *two = [[OptionLabel alloc] initWithLabelIndex:2 Text:@"Bigger Cactus" image:nil andEvent:nil];
+    
+    [self.backgroundView addSubview:one];
+    [self.backgroundView addSubview:two];
     
 }
 
 - (void) asSelector: (id) class performs:(SEL) sel {
     [class performSelector:sel withObject:nil];
+}
+
+# pragma Mark - Set Parameters
+
+- (void) setButtonPosition:(MFAButtonPosition *)ButtonPosition {
+    
+}
+
+# pragma mark Handle hits to view
+
+-(id)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    id hitView = [super hitTest:point withEvent:event];
+    
+    if (hitView == self)
+        return nil;
+    else
+        return hitView;
+}
+
+#pragma mark - update
+
+- (void) newInit {
+    
+}
+
+- (void) setBackgrounViewParams {
+    
+}
+
+- (void) setFrontButtonViewParams {
+    
 }
 
 @end

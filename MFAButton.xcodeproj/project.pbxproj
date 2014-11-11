@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC03ABD51A12996C006803BA /* OptionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC03ABD41A12996C006803BA /* OptionLabel.m */; };
 		AC506D2B1A102F9C007B4BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D2A1A102F9C007B4BA6 /* main.m */; };
 		AC506D2E1A102F9C007B4BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D2D1A102F9C007B4BA6 /* AppDelegate.m */; };
 		AC506D311A102F9C007B4BA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D301A102F9C007B4BA6 /* ViewController.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC03ABD31A12996C006803BA /* OptionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionLabel.h; path = MFAButton/Components/OptionLabel.h; sourceTree = "<group>"; };
+		AC03ABD41A12996C006803BA /* OptionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionLabel.m; path = MFAButton/Components/OptionLabel.m; sourceTree = "<group>"; };
 		AC506D251A102F9C007B4BA6 /* MFAButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFAButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC506D291A102F9C007B4BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC506D2A1A102F9C007B4BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -72,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC03ABD61A12996F006803BA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AC03ABD31A12996C006803BA /* OptionLabel.h */,
+				AC03ABD41A12996C006803BA /* OptionLabel.m */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		AC506D1C1A102F9C007B4BA6 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +145,7 @@
 				AC506D5B1A10302F007B4BA6 /* MFAButton.m */,
 				AC506D501A102FBD007B4BA6 /* FrontButton */,
 				AC506D4F1A102FB0007B4BA6 /* BackgroundView */,
+				AC03ABD61A12996F006803BA /* Components */,
 			);
 			name = MFAButton;
 			sourceTree = "<group>";
@@ -272,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC506D5C1A10302F007B4BA6 /* MFAButton.m in Sources */,
+				AC03ABD51A12996C006803BA /* OptionLabel.m in Sources */,
 				AC506D561A102FF7007B4BA6 /* BackgroundView.m in Sources */,
 				AC506D311A102F9C007B4BA6 /* ViewController.m in Sources */,
 				AC506D591A103014007B4BA6 /* FrontButton.m in Sources */,

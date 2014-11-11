@@ -11,5 +11,6 @@
 
 @interface FrontButton : UIButton
 
+- (void) updateFrame;
 
 @end

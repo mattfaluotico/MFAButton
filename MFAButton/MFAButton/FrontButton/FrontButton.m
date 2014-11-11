@@ -11,13 +11,28 @@
 @implementation FrontButton
 
 
+
 - (id) init {
-    self = [super initWithFrame:CGRectMake(0, 0, 100, 100)];
-    self.backgroundColor = [UIColor blueColor];
-    [self setTitle:@"Hi, Matt" forState:UIControlStateNormal];
+    
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    
+    self = [super initWithFrame:CGRectMake(screen.size.width - 70,
+                                           screen.size.height - 70,
+                                           50,
+                                           50)];
+    self.layer.cornerRadius = 25;
+    [self setTitle:@"+" forState:UIControlStateNormal];
+    self.backgroundColor = [UIColor redColor];
+    [self setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     self.userInteractionEnabled = YES;
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     return self;
 }
+
+- (void) updateFrame {
+    self.frame = CGRectMake(30, 30, 100, 100);
+}
+
 
 
 @end
