@@ -24,14 +24,23 @@
 };
 
 - (id) initWithActionListButton {
+    
     CGRect screen = [[UIScreen mainScreen] bounds];
     self = [super initWithFrame:CGRectMake(0, 0, screen.size.width, screen.size.height)];
-    self.backgroundView = [[BackgroundView alloc] init];
+    self.backgroundView = nil;
     self.frontButton    = [[FrontButton alloc] init];
     [self addSubview:self.backgroundView];
     [self addSubview:self.frontButton];
+    self.clipsToBounds = YES;
+    
     return self;
 };
+
+-(id)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    id hitView = [super hitTest:point withEvent:event];
+    if (hitView == self) return nil;
+    else return hitView;
+}
 
 - (void) setEvent: (void (^)())event {
     EventBlock = event;

@@ -26,9 +26,6 @@
     }];
     
     [self.view addSubview:b];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hehe)];
-    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,8 +34,6 @@
 }
 
 
-- (void) hehe {
-    NSLog(@"hehe");
-}
+
 
 @end

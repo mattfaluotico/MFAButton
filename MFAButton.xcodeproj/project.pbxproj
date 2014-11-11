@@ -17,6 +17,7 @@
 		AC506D561A102FF7007B4BA6 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D551A102FF7007B4BA6 /* BackgroundView.m */; };
 		AC506D591A103014007B4BA6 /* FrontButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D581A103014007B4BA6 /* FrontButton.m */; };
 		AC506D5C1A10302F007B4BA6 /* MFAButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D5B1A10302F007B4BA6 /* MFAButton.m */; };
+		AC5DC7ED1A1115BF00BEC898 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5DC7EC1A1115BF00BEC898 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		AC506D581A103014007B4BA6 /* FrontButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FrontButton.m; path = MFAButton/FrontButton/FrontButton.m; sourceTree = "<group>"; };
 		AC506D5A1A10302F007B4BA6 /* MFAButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFAButton.h; path = MFAButton/MFAButton.h; sourceTree = "<group>"; };
 		AC506D5B1A10302F007B4BA6 /* MFAButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MFAButton.m; path = MFAButton/MFAButton.m; sourceTree = "<group>"; };
+		AC5DC7EB1A1115BF00BEC898 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Demo/TableViewController.h; sourceTree = "<group>"; };
+		AC5DC7EC1A1115BF00BEC898 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Demo/TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				AC506D321A102F9C007B4BA6 /* Main.storyboard */,
 				AC506D351A102F9C007B4BA6 /* Images.xcassets */,
 				AC506D371A102F9C007B4BA6 /* LaunchScreen.xib */,
+				AC5DC7EB1A1115BF00BEC898 /* TableViewController.h */,
+				AC5DC7EC1A1115BF00BEC898 /* TableViewController.m */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				AC506D311A102F9C007B4BA6 /* ViewController.m in Sources */,
 				AC506D591A103014007B4BA6 /* FrontButton.m in Sources */,
 				AC506D2E1A102F9C007B4BA6 /* AppDelegate.m in Sources */,
+				AC5DC7ED1A1115BF00BEC898 /* TableViewController.m in Sources */,
 				AC506D2B1A102F9C007B4BA6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +468,7 @@
 				AC506D4A1A102F9C007B4BA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC506D4B1A102F9C007B4BA6 /* Build configuration list for PBXNativeTarget "MFAButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +477,7 @@
 				AC506D4D1A102F9C007B4BA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
