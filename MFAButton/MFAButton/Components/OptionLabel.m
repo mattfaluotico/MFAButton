@@ -89,6 +89,7 @@ CGFloat labelPadding = 5;
     }
 }
 
+// Gets the origin based on the label size and the index in the list.
 + (CGRect) indexToPoint: (NSInteger) index text: (NSString *) text {
     
     CGRect screen = [[UIScreen mainScreen] bounds];

@@ -16,6 +16,8 @@
 @property FrontButton *frontButton;
 @property BackgroundView *backgroundView;
 
+@property bool isOpen;
+
 @end
 
 @implementation MFAButton
@@ -33,6 +35,7 @@
     [self addSubview:self.backgroundView];
     [self addSubview:self.frontButton];
     self.clipsToBounds = YES;
+    _isOpen = NO;
     [self.frontButton addTarget:self action:@selector(performEvent) forControlEvents:UIControlEventTouchUpInside];
     return self;
 };
@@ -42,15 +45,18 @@
 }
 
 - (void) performEvent {
-    NSLog(@"presssed");
-    [self launchTestList];
+    if (_isOpen) {
+        NSLog(@"Pressed");
+    } else {
+        [self launchTestList];
+    }
 }
 
 - (void) launchTestList {
     
     // Sets the background view
     self.backgroundView = [[BackgroundView alloc] init];
-    self.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.3];
+    self.backgroundView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.3];
     [self insertSubview:self.backgroundView belowSubview:self.frontButton];
     
     // Sets the list elements
@@ -70,6 +76,10 @@
     [self.backgroundView addSubview:three];
     [self.backgroundView addSubview:four];
     
+    UITapGestureRecognizer *clear = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearBackgroundLayer)];
+    [self.backgroundView addGestureRecognizer:clear];
+    
+    _isOpen = YES;
 }
 
 # pragma Mark - Set Parameters
@@ -89,10 +99,37 @@
         return hitView;
 }
 
-#pragma mark - update
+-(void) clearBackgroundLayer {
+    [self.backgroundView removeFromSuperview];
+    self.backgroundView = nil;
+    _isOpen = NO;
+}
+
+#pragma mark - update?
 
 - (void) newInit {
     
 }
+
+- (void) fadeOutBackground {
+    
+}
+
+- (void) fadeInOptions {
+    
+}
+
+- (void) addOption {
+    
+}
+
+- (void) setButtonEvent {
+    
+}
+
+- (void) performButtonEvent {
+    
+}
+
 
 @end
