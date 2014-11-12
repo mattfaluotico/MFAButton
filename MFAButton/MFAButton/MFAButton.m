@@ -8,6 +8,7 @@
 
 #import "MFAButton.h"
 #import "OptionLabel.h"
+#import "POP/pop.h"
 
 @interface MFAButton() {
     void (^EventBlock)();
@@ -59,6 +60,9 @@
     self.backgroundView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.3];
     [self insertSubview:self.backgroundView belowSubview:self.frontButton];
     
+    self.backgroundView.alpha = 0;
+    [self fadeInBackground];
+    
     // Sets the list elements
     CGRect screen = [[UIScreen mainScreen] bounds];
     OptionLabel *one = [[OptionLabel alloc] initWithLabelIndex:1 Text:@"Really fucking big Cactus" image:[UIImage imageNamed:@"moose"] andEvent:nil];
@@ -71,10 +75,15 @@
     
     
     [self.backgroundView addSubview:one];
+    [self fadeInOptions:one];
     [self.backgroundView addSubview:main];
+    [self fadeInOptions:main];
     [self.backgroundView addSubview:two];
+    [self fadeInOptions:two];
     [self.backgroundView addSubview:three];
+    [self fadeInOptions:three];
     [self.backgroundView addSubview:four];
+    [self fadeInOptions:four];
     
     UITapGestureRecognizer *clear = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearBackgroundLayer)];
     [self.backgroundView addGestureRecognizer:clear];
@@ -100,8 +109,7 @@
 }
 
 -(void) clearBackgroundLayer {
-    [self.backgroundView removeFromSuperview];
-    self.backgroundView = nil;
+    [self fadeOutBackground];
     _isOpen = NO;
 }
 
@@ -111,16 +119,44 @@
     
 }
 
-- (void) fadeOutBackground {
+- (void) fadeInBackground {
+    POPBasicAnimation *fadeIn = [POPBasicAnimation new];
+    POPBasicAnimation *fadeInColor = [POPBasicAnimation new];
+    fadeInColor.property = [POPAnimatableProperty propertyWithName:kPOPViewBackgroundColor];
+    fadeIn.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
+    fadeIn.fromValue = @(0);
+    fadeIn.toValue = @(1);
+    fadeInColor.fromValue = [UIColor whiteColor];
+    fadeInColor.toValue = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    [self.backgroundView pop_addAnimation:fadeInColor forKey:@"fadeInColor"];
+    [self.backgroundView pop_addAnimation:fadeIn forKey:@"fadeIn"];
     
 }
 
-- (void) fadeInOptions {
+- (void) fadeOutBackground {
+    POPBasicAnimation *fadeOut = [POPBasicAnimation new];
+    fadeOut.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
+    fadeOut.fromValue = @(1);
+    fadeOut.toValue = @(0);
+    [self.backgroundView pop_addAnimation:fadeOut forKey:@"fadeOut"];
     
+    [fadeOut setCompletionBlock:^(POPAnimation * fadeOut, BOOL value) {
+        [self.backgroundView removeFromSuperview];
+        self.backgroundView = nil;
+    }];
+}
+
+- (void) fadeInOptions: (UIView *) v {
+    POPBasicAnimation *fadeIn = [POPBasicAnimation new];
+    fadeIn.property = [POPAnimatableProperty propertyWithName:kPOPViewFrame];
+    CGRect fromFrame = v.frame;
+    fromFrame.origin.y+=10;
+    fadeIn.fromValue = [NSValue valueWithCGRect:fromFrame];
+    fadeIn.toValue = [NSValue valueWithCGRect:v.frame];
+    [v pop_addAnimation:fadeIn forKey:@"fadeOption1"];
 }
 
 - (void) addOption {
-    
 }
 
 - (void) setButtonEvent {
