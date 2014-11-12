@@ -45,6 +45,13 @@ CGFloat labelPadding = 5;
     self.layer.shadowColor = [[UIColor darkGrayColor] CGColor];
     self.layer.shadowOffset = CGSizeMake(0, 2);
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.layer.cornerRadius = 22.5;
+    imageView.clipsToBounds = YES;
+    imageView.frame = CGRectMake(frame.size.width + 12.5, -9, 45, 45);
+    [self addSubview:imageView];
+    
     // Add the label
     [self addSubview:label];
     return self;

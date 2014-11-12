@@ -55,20 +55,21 @@
     
     // Sets the list elements
     CGRect screen = [[UIScreen mainScreen] bounds];
-    OptionLabel *one = [[OptionLabel alloc] initWithLabelIndex:1 Text:@"Really fucking big Cactus" image:nil andEvent:nil];
+    OptionLabel *one = [[OptionLabel alloc] initWithLabelIndex:1 Text:@"Really fucking big Cactus" image:[UIImage imageNamed:@"moose"] andEvent:nil];
+    OptionLabel *three = [[OptionLabel alloc] initWithLabelIndex:3 Text:@"The biggest cactus of all. Like it's so big." image:nil andEvent:nil];
+    OptionLabel *four = [[OptionLabel alloc] initWithLabelIndex:4 Text:@"Tiny" image:nil andEvent:nil];
     OptionLabel *main = [[OptionLabel alloc] initWithLabelIndex:0 Text:@"Really fucking big Cactus" image:nil andEvent:nil];
     OptionLabel *two = [[OptionLabel alloc] initWithLabelIndex:2 Text:@"Bigger Cactus" image:nil andEvent:^{
         NSLog(@"hello!");
     }];
     
+    
     [self.backgroundView addSubview:one];
     [self.backgroundView addSubview:main];
     [self.backgroundView addSubview:two];
+    [self.backgroundView addSubview:three];
+    [self.backgroundView addSubview:four];
     
-}
-
-- (void) asSelector: (id) class performs:(SEL) sel {
-    [class performSelector:sel withObject:nil];
 }
 
 # pragma Mark - Set Parameters
@@ -91,14 +92,6 @@
 #pragma mark - update
 
 - (void) newInit {
-    
-}
-
-- (void) setBackgrounViewParams {
-    
-}
-
-- (void) setFrontButtonViewParams {
     
 }
 
