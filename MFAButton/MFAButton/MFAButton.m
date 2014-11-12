@@ -35,19 +35,15 @@
     return nil;
 }
 
-- (void) setButtonView:(UIView *)buttonView {
-    
-}
-
-- (void) fadeOutBackground {
-    
-}
-
-- (void) fadeInOptions {
-    
-}
-
 - (void) addOption:(OptionLabel *) optionView {
+    [self.optionLabels addObject:optionView];
+    
+    // TODO: Add option to background view to speed things up?
+}
+
+- (void) addOption: (UIView *) view withEvent: (void (^)())event {
+    // TODO: Init option label with view
+    OptionLabel *n;
     
 }
 
@@ -55,9 +51,40 @@
     
 }
 
+#pragma mark - Private Helpers
+
 - (void) performButtonEvent {
     
 }
 
+- (void) launchButtonList {
+    
+}
+
+#pragma mark - Animation
+
+- (void) a_fadeInOptions {
+    
+}
+
+- (void) a_fadeOutOptions {
+    
+}
+
+- (void) a_fadeInBackground {
+    
+}
+
+- (void) a_fadeOutBackground {
+    
+}
+
+- (void) a_shrinkViewOnTouchDown {
+    
+}
+
+- (void) a_restoreViewOnTouchUp {
+    
+}
 
 @end

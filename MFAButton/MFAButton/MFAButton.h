@@ -22,8 +22,6 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 @property MFAButtonPosition *ButtonPosition;
 @property UIView *buttonView;
 
-// Background Properties
-
 // Create a FAButton that has a single action.
 - (id) initAsSingleActionButton;
 
@@ -36,6 +34,13 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 // Add an option (must be a list)
 - (void) addOption:(OptionLabel *) optionView;
 
+- (void) addOption: (UIView *) view withEvent: (void (^)())event;
+
+// Sets the view for the button
+- (void) setInitButtonView:(UIView *)buttonView;
+
+// Button view I will animate to.
+- (void) setActionButtonView:(UIView *)buttonView;
 
 // ---------------------------------------------------
 
