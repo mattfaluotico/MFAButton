@@ -21,6 +21,8 @@ CGFloat labelPadding = 5;
                      Text: (NSString*) text
                    image: (UIImage *) image
                 andEvent: (void (^)())event {
+
+    // Init the stuff...
     CGRect frame = [OptionLabel indexToPoint:index text:text];
     self = [super initWithFrame: frame];
     self.backgroundColor = [UIColor whiteColor];
@@ -29,15 +31,32 @@ CGFloat labelPadding = 5;
     self.optionImage = image;
     EventBlock = event;
     
+    // Set Label
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
     [label setTextAlignment:NSTextAlignmentCenter];
     label.font = [UIFont boldSystemFontOfSize:12];
     label.text = text;
+    UITapGestureRecognizer *labelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(performEvent)];
+    [self addGestureRecognizer:labelTap];
     
+    // set the shadow
+    self.layer.shadowRadius = 3;
+    self.layer.shadowOpacity = 0.6;
+    self.layer.shadowColor = [[UIColor darkGrayColor] CGColor];
+    self.layer.shadowOffset = CGSizeMake(0, 2);
+    
+    // Add the label
     [self addSubview:label];
     return self;
 }
 
+
+// Performs the event aligned with the OptionLabel
+- (void) performEvent {
+    if (EventBlock) {
+        EventBlock();
+    }
+}
 
 + (CGRect) indexToPoint: (NSInteger) index text: (NSString *) text {
     
@@ -53,9 +72,15 @@ CGFloat labelPadding = 5;
     y = screen.size.height - y;
     x = screen.size.width - x;
     
+    if (index == 0) {
+        y = screen.size.height - 10 - frontButtonHeight;
+    }
+    
     return CGRectMake(x, y, labelSize.width, labelSize.height);
 }
 
+// TODO: Shrink OptionLabel on Touch
+// TODO: Fix spacing
 
 
 @end

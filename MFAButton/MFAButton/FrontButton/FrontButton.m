@@ -26,6 +26,13 @@
     [self setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     self.userInteractionEnabled = YES;
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    
+    // Set shadow
+    self.layer.shadowRadius = 3;
+    self.layer.shadowOpacity = 0.6;
+    self.layer.shadowColor = [[UIColor darkGrayColor] CGColor];
+    self.layer.shadowOffset = CGSizeMake(0, 2);
+    
     return self;
 }
 

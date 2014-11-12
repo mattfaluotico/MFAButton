@@ -56,9 +56,13 @@
     // Sets the list elements
     CGRect screen = [[UIScreen mainScreen] bounds];
     OptionLabel *one = [[OptionLabel alloc] initWithLabelIndex:1 Text:@"Really fucking big Cactus" image:nil andEvent:nil];
-    OptionLabel *two = [[OptionLabel alloc] initWithLabelIndex:2 Text:@"Bigger Cactus" image:nil andEvent:nil];
+    OptionLabel *main = [[OptionLabel alloc] initWithLabelIndex:0 Text:@"Really fucking big Cactus" image:nil andEvent:nil];
+    OptionLabel *two = [[OptionLabel alloc] initWithLabelIndex:2 Text:@"Bigger Cactus" image:nil andEvent:^{
+        NSLog(@"hello!");
+    }];
     
     [self.backgroundView addSubview:one];
+    [self.backgroundView addSubview:main];
     [self.backgroundView addSubview:two];
     
 }

@@ -52,5 +52,8 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 // Sets the event to be performed when button is in active state or button is a single action button
 - (void) setEvent: (void (^)())event;
 
+// ---------------------------------------------------
+
+//- (void) addOptionWith
 
 @end
