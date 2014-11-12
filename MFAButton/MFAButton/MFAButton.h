@@ -9,20 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FrontButton.h"
 #import "BackgroundView.h"
-
-/*
- 
- Properties
- --- Background
- - Background Blur
- - Color
- --- Button
- - Color
- - Default Label
- - Active Label
- - Default Event
- - Active Event
- */
+#import "OptionLabel.h"
 
 typedef NS_ENUM(NSInteger, MFAButtonPosition) {
     MFAButtonPositionCenter,
@@ -32,28 +19,25 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 
 @interface MFAButton : UIView
 
-// Button Properties
-
 @property MFAButtonPosition *ButtonPosition;
-@property UIColor *ButtonColor;
-@property UIColor *ButtonLabelColor;
-@property UILabel *ButtonDefaultLabel;
-@property UILabel *ButtonActiveLabel;
+@property UIView *buttonView;
 
 // Background Properties
 
-
 // Create a FAButton that has a single action.
-- (id) initWithSingleActionButton;
+- (id) initAsSingleActionButton;
 
 // Create a FAB button that generates a list of potential action.
-- (id) initWithActionListButton;
+- (id) initAsActionListButton;
 
 // Sets the event to be performed when button is in active state or button is a single action button
-- (void) setEvent: (void (^)())event;
+- (void) setButtonEvent: (void (^)())event;
+
+// Add an option (must be a list)
+- (void) addOption:(OptionLabel *) optionView;
+
 
 // ---------------------------------------------------
 
-//- (void) addOptionWith
 
 @end
