@@ -21,12 +21,22 @@ CGFloat labelPadding = 5;
                      Text: (NSString*) text
                    image: (UIImage *) image
                 andEvent: (void (^)())event {
-
+    
+    
     // Init the stuff...
     CGRect frame = [OptionLabel indexToPoint:index text:text];
-    self = [super initWithFrame: frame];
-    self.backgroundColor = [UIColor whiteColor];
-    self.layer.cornerRadius = 5;
+    
+    CGRect masterFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+    masterFrame.size.height = 45;
+    masterFrame.size.width+= 45 + 10;
+    masterFrame.origin.y-=9;
+    
+    // Label Outline
+    UIView *labelOutline = [[UIView alloc] initWithFrame:CGRectMake(0, 9, frame.size.width, frame.size.height)];
+    
+    self = [super initWithFrame: masterFrame];
+    labelOutline.backgroundColor = [UIColor whiteColor];
+    labelOutline.layer.cornerRadius = 5;
     self.optionText = text;
     self.optionImage = image;
     EventBlock = event;
@@ -40,20 +50,34 @@ CGFloat labelPadding = 5;
     [self addGestureRecognizer:labelTap];
     
     // set the shadow
-    self.layer.shadowRadius = 3;
-    self.layer.shadowOpacity = 0.6;
-    self.layer.shadowColor = [[UIColor darkGrayColor] CGColor];
-    self.layer.shadowOffset = CGSizeMake(0, 2);
+    labelOutline.layer.shadowRadius = 3;
+    labelOutline.layer.shadowOpacity = 0.6;
+    labelOutline.layer.shadowColor = [[UIColor darkGrayColor] CGColor];
+    labelOutline.layer.shadowOffset = CGSizeMake(0, 2);
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.layer.cornerRadius = 22.5;
-    imageView.clipsToBounds = YES;
-    imageView.frame = CGRectMake(frame.size.width + 12.5, -9, 45, 45);
-    [self addSubview:imageView];
+    if (image) {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.layer.cornerRadius = 22.5;
+        imageView.clipsToBounds = YES;
+        imageView.frame = CGRectMake(frame.size.width + 12.5, 0, 45, 45);
+        
+        UIView *shadowView = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width + 12.5, 0, 45, 45)];
+        shadowView.backgroundColor = [UIColor whiteColor];
+        shadowView.layer.cornerRadius = 22.5;
+        shadowView.layer.shadowRadius = 3;
+        shadowView.layer.shadowOpacity = 0.6;
+        shadowView.layer.shadowColor = [[UIColor darkGrayColor] CGColor];
+        shadowView.layer.shadowOffset = CGSizeMake(0, 2);
     
-    // Add the label
-    [self addSubview:label];
+        [self addSubview:imageView];
+        [self insertSubview:shadowView belowSubview:imageView];
+    }
+    
+    // Add the labelOutline
+    [labelOutline addSubview:label];
+    [self addSubview:labelOutline];
+    
     return self;
 }
 

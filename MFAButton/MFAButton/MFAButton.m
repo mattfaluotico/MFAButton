@@ -59,7 +59,7 @@
     OptionLabel *three = [[OptionLabel alloc] initWithLabelIndex:3 Text:@"The biggest cactus of all. Like it's so big." image:nil andEvent:nil];
     OptionLabel *four = [[OptionLabel alloc] initWithLabelIndex:4 Text:@"Tiny" image:nil andEvent:nil];
     OptionLabel *main = [[OptionLabel alloc] initWithLabelIndex:0 Text:@"Really fucking big Cactus" image:nil andEvent:nil];
-    OptionLabel *two = [[OptionLabel alloc] initWithLabelIndex:2 Text:@"Bigger Cactus" image:nil andEvent:^{
+    OptionLabel *two = [[OptionLabel alloc] initWithLabelIndex:2 Text:@"Bigger Cactus" image:[UIImage imageNamed:@"moose"] andEvent:^{
         NSLog(@"hello!");
     }];
     
