@@ -22,11 +22,15 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 @property MFAButtonPosition *ButtonPosition;
 @property UIView *buttonView;
 
+#pragma mark - Init methods
+
 // Create a FAButton that has a single action.
 - (id) initAsSingleActionButton;
 
 // Create a FAB button that generates a list of potential action.
 - (id) initAsActionListButton;
+
+// ---------------------------------------------
 
 // Sets the event to be performed when button is in active state or button is a single action button
 - (void) setButtonEvent: (void (^)())event;
@@ -34,6 +38,7 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 // Add an option (must be a list)
 - (void) addOption:(OptionLabel *) optionView;
 
+// Add option without creating an object instance
 - (void) addOption: (UIView *) view withEvent: (void (^)())event;
 
 // Sets the view for the button

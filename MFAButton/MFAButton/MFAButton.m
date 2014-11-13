@@ -21,6 +21,12 @@
 
 @end
 
+#pragma mark - Constants for OptionPlacement spacing
+
+const CGFloat s_frontButtonMargin = 20;
+const CGFloat s_optionLabelLRMargin = 20;
+const CGFloat s_betweenOptionLabels = 15;
+
 // -------------------------------------------------------
 
 #pragma mark - Implementation
@@ -37,28 +43,50 @@
 
 - (void) addOption:(OptionLabel *) optionView {
     [self.optionLabels addObject:optionView];
-    
-    // TODO: Add option to background view to speed things up?
 }
 
 - (void) addOption: (UIView *) view withEvent: (void (^)())event {
     // TODO: Init option label with view
-    OptionLabel *n;
-    
+    OptionLabel *n = [[OptionLabel alloc] initWithView:view andEventBlock:event];
+    [self addOption:n];
 }
 
-- (void) setButtonEvent {
-    
+- (void) setButtonEvent: (void (^)())event {
+    EventBlock = event;
 }
 
 #pragma mark - Private Helpers
 
 - (void) performButtonEvent {
-    
+
+    if (_isList) {
+        if (_isOpen) {
+            EventBlock();
+        } else {
+            [self launchButtonList];
+            _isOpen = YES;
+        }
+    } else {
+        EventBlock();
+    }
 }
 
 - (void) launchButtonList {
     
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    
+    CGFloat positionX;
+    CGFloat positionY = screen.size.height - s_frontButtonMargin - self.frontButton.frame.size.height;
+    
+    NSInteger optionIndex = 0;
+    for (OptionLabel *v in _optionLabels) {
+        // Update Frame
+        positionX = screen.size.width - s_optionLabelLRMargin - v.frame.size.width;
+        positionY = positionY - s_betweenOptionLabels - v.frame.size.height;
+        v.frame = CGRectMake(positionX, positionY, v.frame.size.width, v.frame.size.height);
+        [self.backgroundView addSubview:v];
+        // TODO: Add animation
+    }
 }
 
 #pragma mark - Animation
@@ -86,5 +114,6 @@
 - (void) a_restoreViewOnTouchUp {
     
 }
+
 
 @end

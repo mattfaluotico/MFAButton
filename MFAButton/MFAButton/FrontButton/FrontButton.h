@@ -11,6 +11,6 @@
 
 @interface FrontButton : UIButton
 
-- (void) updateFrame;
+- (void) initWithMainView: (UIView *) andToView: (UIView *) toView andEventBlock: (void (^)())event;
 
 @end

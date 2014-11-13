@@ -8,6 +8,8 @@
 
 #import "OptionLabel.h"
 
+#pragma mark - Constants for placement
+
 CGFloat labelHeight = 27;
 CGFloat frontButtonHeight = 50;
 CGFloat imageHeight = 45;
@@ -111,8 +113,11 @@ CGFloat labelPadding = 5;
     return CGRectMake(x, y, labelSize.width, labelSize.height);
 }
 
-// TODO: Shrink OptionLabel on Touch
-// TODO: Fix spacing
+- (id) initWithView: (UIView *) view andEventBlock: (void (^)())event {
+    // TODO: better init
+    self = [super init];
+    return self;
+}
 
 
 @end

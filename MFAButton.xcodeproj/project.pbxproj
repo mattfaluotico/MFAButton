@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AC03ABD51A12996C006803BA /* OptionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC03ABD41A12996C006803BA /* OptionLabel.m */; };
+		AC149B6E1A14633B005A9D1B /* GENERIC.m in Sources */ = {isa = PBXBuildFile; fileRef = AC149B6D1A14633B005A9D1B /* GENERIC.m */; };
+		AC149B711A14659A005A9D1B /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC149B701A14659A005A9D1B /* PopAnimator.m */; };
 		AC506D2B1A102F9C007B4BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D2A1A102F9C007B4BA6 /* main.m */; };
 		AC506D2E1A102F9C007B4BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D2D1A102F9C007B4BA6 /* AppDelegate.m */; };
 		AC506D311A102F9C007B4BA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D301A102F9C007B4BA6 /* ViewController.m */; };
@@ -34,6 +36,10 @@
 /* Begin PBXFileReference section */
 		AC03ABD31A12996C006803BA /* OptionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionLabel.h; path = MFAButton/Components/OptionLabel.h; sourceTree = "<group>"; };
 		AC03ABD41A12996C006803BA /* OptionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionLabel.m; path = MFAButton/Components/OptionLabel.m; sourceTree = "<group>"; };
+		AC149B6C1A14633B005A9D1B /* GENERIC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GENERIC.h; path = MFAButton/Generic/GENERIC.h; sourceTree = "<group>"; };
+		AC149B6D1A14633B005A9D1B /* GENERIC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GENERIC.m; path = MFAButton/Generic/GENERIC.m; sourceTree = "<group>"; };
+		AC149B6F1A14659A005A9D1B /* PopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopAnimator.h; path = MFAButton/Components/PopAnimator.h; sourceTree = "<group>"; };
+		AC149B701A14659A005A9D1B /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopAnimator.m; path = MFAButton/Components/PopAnimator.m; sourceTree = "<group>"; };
 		AC506D251A102F9C007B4BA6 /* MFAButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFAButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC506D291A102F9C007B4BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC506D2A1A102F9C007B4BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,8 +86,19 @@
 			children = (
 				AC03ABD31A12996C006803BA /* OptionLabel.h */,
 				AC03ABD41A12996C006803BA /* OptionLabel.m */,
+				AC149B6F1A14659A005A9D1B /* PopAnimator.h */,
+				AC149B701A14659A005A9D1B /* PopAnimator.m */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		AC149B6B1A14631C005A9D1B /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				AC149B6C1A14633B005A9D1B /* GENERIC.h */,
+				AC149B6D1A14633B005A9D1B /* GENERIC.m */,
+			);
+			name = Generic;
 			sourceTree = "<group>";
 		};
 		AC506D1C1A102F9C007B4BA6 = {
@@ -146,6 +163,7 @@
 				AC506D501A102FBD007B4BA6 /* FrontButton */,
 				AC506D4F1A102FB0007B4BA6 /* BackgroundView */,
 				AC03ABD61A12996F006803BA /* Components */,
+				AC149B6B1A14631C005A9D1B /* Generic */,
 			);
 			name = MFAButton;
 			sourceTree = "<group>";
@@ -288,8 +306,10 @@
 				AC03ABD51A12996C006803BA /* OptionLabel.m in Sources */,
 				AC506D561A102FF7007B4BA6 /* BackgroundView.m in Sources */,
 				AC506D311A102F9C007B4BA6 /* ViewController.m in Sources */,
+				AC149B711A14659A005A9D1B /* PopAnimator.m in Sources */,
 				AC506D591A103014007B4BA6 /* FrontButton.m in Sources */,
 				AC506D2E1A102F9C007B4BA6 /* AppDelegate.m in Sources */,
+				AC149B6E1A14633B005A9D1B /* GENERIC.m in Sources */,
 				AC5DC7ED1A1115BF00BEC898 /* TableViewController.m in Sources */,
 				AC506D2B1A102F9C007B4BA6 /* main.m in Sources */,
 			);

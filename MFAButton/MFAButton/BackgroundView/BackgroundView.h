@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OptionLabel.h"
 
 @interface BackgroundView : UIView
+
+@property UIColor *backgroundColor;
+@property bool *blur;
+
+- (id) initWithBackgroundColor: (UIColor *) color andViewShouldBeBlurry: (bool) blur;
 
 @end

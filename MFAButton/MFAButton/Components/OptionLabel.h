@@ -18,4 +18,6 @@
 
 - (id) initWithLabelIndex: (NSInteger) index Text: (NSString*) text image: (UIImage *) image andEvent: (void (^)())event;
 
+- (id) initWithView: (UIView *) view andEventBlock: (void (^)())event;
+
 @end
