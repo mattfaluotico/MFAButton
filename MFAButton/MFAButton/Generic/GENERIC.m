@@ -12,8 +12,7 @@
 
 + (FrontButton *) genericFrontButtonWithDefaultText: (NSString *) defaultText
                                          activeText: (NSString *) activeText
-                                              color: (UIColor*) c
-                                           andEvent: (void (^)())event {
+                                           andColor: (UIColor*) c {
     
     CGRect screen = [[UIScreen mainScreen] bounds];
     FrontButton *button = [[FrontButton alloc] initWithFrame:CGRectMake(screen.size.width - 75,

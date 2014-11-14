@@ -14,8 +14,7 @@
 
 + (FrontButton *) genericFrontButtonWithDefaultText: (NSString *) defaultText
                                           activeText: (NSString *) activeText
-                                               color: (UIColor*) c
-                                            andEvent: (void (^)())event;
+                                               andColor: (UIColor*) c;
 
 + (OptionLabel *) genericOptionLabelWithText: (NSString *) text
                                 imageForIcon: (UIImage *) image

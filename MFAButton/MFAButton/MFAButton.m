@@ -49,11 +49,7 @@ const CGFloat s_betweenOptionLabels = 15;
     self.clipsToBounds = YES;
     _isOpen = NO;
     _isList = YES;
-    
-    self.frontButton = [GENERIC genericFrontButtonWithDefaultText:@"hi" activeText:@"active" color:[UIColor blueColor] andEvent:^{
-        NSLog(@"touched the test");
-    }];
-    
+        
     self.optionLabels = [[NSMutableArray alloc] init];
     
     [self.frontButton addTarget:self action:@selector(performButtonEvent) forControlEvents:UIControlEventTouchUpInside];
@@ -77,6 +73,7 @@ const CGFloat s_betweenOptionLabels = 15;
 // Sets the event for a button
 - (void) setButtonEvent: (void (^)())event {
     EventBlock = event;
+    [self.frontButton addTarget:self action:@selector(performButtonEvent) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setFrontButton: (FrontButton *) button WithPosition: (MFAButtonPosition) position {

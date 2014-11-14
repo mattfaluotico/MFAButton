@@ -32,7 +32,9 @@
                                               andEvent:^{
                                                   NSLog(@"clicked option two");
                                               }]];
- 
+
+    [mfb setFrontButton:[GENERIC genericFrontButtonWithDefaultText:@"hi" activeText:@"active" andColor:[UIColor brownColor]] WithPosition:MFAButtonPositionCenter];
+    
     [mfb setButtonEvent:^{
         [mfb clearListFromView];
     }];

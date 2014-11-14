@@ -18,8 +18,8 @@
 		AC506D391A102F9C007B4BA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC506D371A102F9C007B4BA6 /* LaunchScreen.xib */; };
 		AC506D451A102F9C007B4BA6 /* MFAButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D441A102F9C007B4BA6 /* MFAButtonTests.m */; };
 		AC506D561A102FF7007B4BA6 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D551A102FF7007B4BA6 /* BackgroundView.m */; };
-		AC506D591A103014007B4BA6 /* FrontButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D581A103014007B4BA6 /* FrontButton.m */; };
 		AC506D5C1A10302F007B4BA6 /* MFAButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC506D5B1A10302F007B4BA6 /* MFAButton.m */; };
+		AC5181181A15ABF000C29E8C /* FrontButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5181171A15ABF000C29E8C /* FrontButton.m */; };
 		AC5DC7ED1A1115BF00BEC898 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5DC7EC1A1115BF00BEC898 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -55,10 +55,10 @@
 		AC506D441A102F9C007B4BA6 /* MFAButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFAButtonTests.m; sourceTree = "<group>"; };
 		AC506D541A102FF7007B4BA6 /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgroundView.h; path = MFAButton/BackgroundView/BackgroundView.h; sourceTree = "<group>"; };
 		AC506D551A102FF7007B4BA6 /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgroundView.m; path = MFAButton/BackgroundView/BackgroundView.m; sourceTree = "<group>"; };
-		AC506D571A103014007B4BA6 /* FrontButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FrontButton.h; path = MFAButton/FrontButton/FrontButton.h; sourceTree = "<group>"; };
-		AC506D581A103014007B4BA6 /* FrontButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FrontButton.m; path = MFAButton/FrontButton/FrontButton.m; sourceTree = "<group>"; };
 		AC506D5A1A10302F007B4BA6 /* MFAButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFAButton.h; path = MFAButton/MFAButton.h; sourceTree = "<group>"; };
 		AC506D5B1A10302F007B4BA6 /* MFAButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MFAButton.m; path = MFAButton/MFAButton.m; sourceTree = "<group>"; };
+		AC5181161A15ABF000C29E8C /* FrontButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FrontButton.h; path = MFAButton/FrontButton/FrontButton.h; sourceTree = "<group>"; };
+		AC5181171A15ABF000C29E8C /* FrontButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FrontButton.m; path = MFAButton/FrontButton/FrontButton.m; sourceTree = "<group>"; };
 		AC5DC7EB1A1115BF00BEC898 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Demo/TableViewController.h; sourceTree = "<group>"; };
 		AC5DC7EC1A1115BF00BEC898 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Demo/TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,8 +180,8 @@
 		AC506D501A102FBD007B4BA6 /* FrontButton */ = {
 			isa = PBXGroup;
 			children = (
-				AC506D571A103014007B4BA6 /* FrontButton.h */,
-				AC506D581A103014007B4BA6 /* FrontButton.m */,
+				AC5181161A15ABF000C29E8C /* FrontButton.h */,
+				AC5181171A15ABF000C29E8C /* FrontButton.m */,
 			);
 			name = FrontButton;
 			sourceTree = "<group>";
@@ -308,9 +308,9 @@
 				AC506D561A102FF7007B4BA6 /* BackgroundView.m in Sources */,
 				AC506D311A102F9C007B4BA6 /* ViewController.m in Sources */,
 				AC149B711A14659A005A9D1B /* PopAnimator.m in Sources */,
-				AC506D591A103014007B4BA6 /* FrontButton.m in Sources */,
 				AC506D2E1A102F9C007B4BA6 /* AppDelegate.m in Sources */,
 				AC149B6E1A14633B005A9D1B /* GENERIC.m in Sources */,
+				AC5181181A15ABF000C29E8C /* FrontButton.m in Sources */,
 				AC5DC7ED1A1115BF00BEC898 /* TableViewController.m in Sources */,
 				AC506D2B1A102F9C007B4BA6 /* main.m in Sources */,
 			);
