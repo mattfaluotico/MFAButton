@@ -20,4 +20,6 @@
 
 - (id) initWithView: (UIView *) view andEventBlock: (void (^)())event;
 
+- (void) setEventBlock: (void (^)())event;
+
 @end

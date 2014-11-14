@@ -43,6 +43,7 @@ CGFloat labelPadding = 5;
     self.optionImage = image;
     EventBlock = event;
     
+    
     // Set Label
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
     [label setTextAlignment:NSTextAlignmentCenter];
@@ -83,6 +84,16 @@ CGFloat labelPadding = 5;
     return self;
 }
 
+- (void) setEventBlock: (void (^)())event {
+    EventBlock = event;
+}
+
+-(id) initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(performEvent)];
+    [self addGestureRecognizer:tap];
+    return self;
+}
 
 // Performs the event aligned with the OptionLabel
 - (void) performEvent {

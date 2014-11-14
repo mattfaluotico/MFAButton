@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MFAButton.h"
+#import "GENERIC.h"
 
 @interface ViewController ()
 
@@ -19,13 +20,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    MFAButton *b = [[MFAButton alloc] initWithActionListButton];
-
-    [b setEvent:^{
-        NSLog(@"touched");
-    }];
+    MFAButton *mfb = [[MFAButton alloc] initAsOptionListButton];
     
-    [self.view addSubview:b];
+    [mfb addOption:[GENERIC genericOptionLabelWithText:@"Option one"
+                                          imageForIcon:[UIImage imageNamed:@"moose"]
+                                              andEvent:^{
+                                                NSLog(@"clicked option one");
+                                            }]];
+    [mfb addOption:[GENERIC genericOptionLabelWithText:@"Option two thousand"
+                                          imageForIcon:[UIImage imageNamed:@"moose"]
+                                              andEvent:^{
+                                                  NSLog(@"clicked option two");
+                                              }]];
+ 
+    [mfb setButtonEvent:^{
+        [mfb clearListFromView];
+    }];
+
+    [self.view addSubview:mfb];
 }
 
 - (void)didReceiveMemoryWarning {

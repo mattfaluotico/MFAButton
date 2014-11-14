@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FrontButton.h"
 #import "BackgroundView.h"
 #import "OptionLabel.h"
+#import "FrontButton.h"
 
 typedef NS_ENUM(NSInteger, MFAButtonPosition) {
     MFAButtonPositionCenter,
@@ -20,7 +20,6 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 @interface MFAButton : UIView
 
 @property MFAButtonPosition *ButtonPosition;
-@property UIView *buttonView;
 
 #pragma mark - Init methods
 
@@ -28,7 +27,11 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 - (id) initAsSingleActionButton;
 
 // Create a FAB button that generates a list of potential action.
-- (id) initAsActionListButton;
+- (id) initAsOptionListButton;
+
+// --------------------------------------------
+
+- (void) clearListFromView;
 
 // ---------------------------------------------
 
@@ -41,11 +44,10 @@ typedef NS_ENUM(NSInteger, MFAButtonPosition) {
 // Add option without creating an object instance
 - (void) addOption: (UIView *) view withEvent: (void (^)())event;
 
-// Sets the view for the button
-- (void) setInitButtonView:(UIView *)buttonView;
-
 // Button view I will animate to.
 - (void) setActionButtonView:(UIView *)buttonView;
+
+- (void) setFrontButton: (FrontButton *) button WithPosition: (MFAButtonPosition) position;
 
 // ---------------------------------------------------
 

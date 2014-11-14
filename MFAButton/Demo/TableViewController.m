@@ -20,12 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.b = [[MFAButton alloc] initWithActionListButton];
-    
-    [self.b setEvent:^{
-        NSLog(@"touched");
-    }];
-    
     [self.navigationController.view addSubview:self.b];
 }
 
