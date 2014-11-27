@@ -8,6 +8,7 @@
 
 #import "MFAButton.h"
 #import "GENERIC.h"
+#import "POP/pop.h"
 
 @interface MFAButton() {
     void (^EventBlock)();
@@ -108,26 +109,28 @@ const CGFloat s_betweenOptionLabels = 15;
     [self addSubview:_backgroundView];
     [self insertSubview:self.backgroundView belowSubview:self.frontButton];
     
-    UITapGestureRecognizer *clearBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearListFromView)];
-    [self.backgroundView addGestureRecognizer:clearBackground];
+//    UITapGestureRecognizer *clearBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clearListFromView)];
+//    [self.backgroundView addGestureRecognizer:clearBackground];
+    self.backgroundView.backgroundColor = [UIColor colorWithRed:0.3 green:0.2 blue:0.7 alpha:0.33];
     
     //TODO: Fade in background
-    
+
+    NSInteger i = 0;
     for (OptionLabel *v in _optionLabels) {
         // Update Frame
         positionX = screen.size.width - s_optionLabelSideMargin - v.frame.size.width;
         positionY = positionY - s_betweenOptionLabels - v.frame.size.height;
         v.frame = CGRectMake(positionX, positionY, v.frame.size.width, v.frame.size.height);
+        v.alpha = 0;
         [self.backgroundView addSubview:v];
-        // TODO: Add animation
+        [self a_animateOption:v InWithIndex:i];
+        i++;
     }
 }
 
 - (void) clearListFromView {
-//    [self fadeOutBackground];
-    [self.backgroundView removeFromSuperview];
-    self.backgroundView = nil;
-    _isOpen = NO;
+    NSInteger index = [self.optionLabels count];
+    [self a_fadeOutBackground];
 }
 
 #pragma mark - Handle clicking
@@ -144,28 +147,49 @@ const CGFloat s_betweenOptionLabels = 15;
 
 #pragma mark - Animation
 
-- (void) a_fadeInOptions {
+- (void) a_animateOption: (OptionLabel *) label InWithIndex: (NSInteger) index {
+    POPBasicAnimation *fadeIn = [POPBasicAnimation new];
+    POPBasicAnimation *slideUp = [POPBasicAnimation new];
     
-}
-
-- (void) a_fadeOutOptions {
+    CGFloat duration = 0.3;
     
+    fadeIn.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
+    fadeIn.fromValue = @0;
+    fadeIn.toValue = @1;
+    fadeIn.duration = duration;
+    fadeIn.beginTime = CACurrentMediaTime() + (index * 0.06);
+    
+    slideUp.property = [POPAnimatableProperty propertyWithName:kPOPViewCenter];
+    CGPoint center = label.center;
+    slideUp.fromValue = [NSValue valueWithCGPoint:CGPointMake(center.x, center.y + 5)];
+    slideUp.toValue = [NSValue valueWithCGPoint:center];
+    slideUp.duration = duration;
+    slideUp.beginTime = CACurrentMediaTime() + (index * 0.06);
+    
+    [label pop_addAnimation:fadeIn forKey:[NSString stringWithFormat:@"fadeIn%li", (long)index]];
+    [label pop_addAnimation:slideUp forKey:[NSString stringWithFormat:@"slideUpn%li", (long)index]];
 }
 
 - (void) a_fadeInBackground {
     
 }
 
-- (void) a_fadeOutBackground {
+- (void) a_fadeOutBackground{
     
-}
-
-- (void) a_shrinkViewOnTouchDown {
+    POPBasicAnimation *fadeOut = [POPBasicAnimation new];
     
-}
-
-- (void) a_restoreViewOnTouchUp {
+    fadeOut.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
+    fadeOut.fromValue = @1;
+    fadeOut.toValue = @0;
+    fadeOut.duration = 0.2;
     
+    [fadeOut setCompletionBlock:^(POPAnimation *b, BOOL c) {
+        [self.backgroundView removeFromSuperview];
+        self.backgroundView = nil;
+        _isOpen = NO;
+    }];
+    
+    [self.backgroundView pop_addAnimation:fadeOut forKey:@"background"];
 }
 
 

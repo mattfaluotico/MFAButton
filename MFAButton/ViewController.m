@@ -27,13 +27,34 @@
                                               andEvent:^{
                                                 NSLog(@"clicked option one");
                                             }]];
+    
     [mfb addOption:[GENERIC genericOptionLabelWithText:@"Option two thousand"
                                           imageForIcon:[UIImage imageNamed:@"moose"]
                                               andEvent:^{
                                                   NSLog(@"clicked option two");
                                               }]];
+    
+    [mfb addOption:[GENERIC genericOptionLabelWithText:@"Option three"
+                                          imageForIcon:[UIImage imageNamed:@"moose"]
+                                              andEvent:^{
+                                                  NSLog(@"clicked option three");
+                                              }]];
 
-    [mfb setFrontButton:[GENERIC genericFrontButtonWithDefaultText:@"hi" activeText:@"active" andColor:[UIColor brownColor]] WithPosition:MFAButtonPositionCenter];
+    [mfb addOption:[GENERIC genericOptionLabelWithText:@"Option four"
+                                          imageForIcon:[UIImage imageNamed:@"moose"]
+                                              andEvent:^{
+                                                  NSLog(@"clicked option four");
+                                              }]];
+    
+    [mfb addOption:[GENERIC genericOptionLabelWithText:@"Option five"
+                                          imageForIcon:[UIImage imageNamed:@"moose"]
+                                              andEvent:^{
+                                                  NSLog(@"clicked option five");
+                                              }]];
+    
+    
+
+    [mfb setFrontButton:[GENERIC genericFrontButtonWithDefaultText:@"+" activeText:@"active" andColor:[UIColor brownColor]] WithPosition:MFAButtonPositionCenter];
     
     [mfb setButtonEvent:^{
         [mfb clearListFromView];
