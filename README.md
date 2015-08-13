@@ -3,4 +3,6 @@ MFAButton
 
 Material Design FAB Button, but for iOS. 
 
-I will gradually add a better demo, but for down, just download zip, install the pod. You can drag the MFAButton group into your project adn custonize it to use it yourself.
+This is mostly a work in progress. For the most part, it works. 
+
+There are some issues with adding it to a UITableView. 
